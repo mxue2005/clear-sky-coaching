@@ -1,37 +1,26 @@
-import Image from 'next/image'
-
 export default function About() {
   return (
     <section className="about" id="about">
       <div className="about-inner">
         <div className="about-photo-stack">
-          <Image
+          <img
             src="/images/michelle-portrait.jpg"
             alt="Michelle Xue"
             className="about-main-img"
-            width={500}
-            height={667}
-            style={{ width: '100%', height: 'auto', aspectRatio: '3/4', objectFit: 'cover', objectPosition: 'center top' }}
           />
           <div className="about-mini-row">
             <div style={{ overflow: 'hidden' }}>
-              <Image
+              <img
                 src="/images/michelle-beach.jpg"
                 alt="Michelle at the beach with her dog"
                 className="about-mini-img"
-                width={300}
-                height={300}
-                style={{ width: '100%', height: 'auto', aspectRatio: '1/1', objectFit: 'cover', objectPosition: 'center 20%' }}
               />
             </div>
             <div style={{ overflow: 'hidden' }}>
-              <Image
+              <img
                 src="/images/michelle-family.jpg"
                 alt="Michelle with her family"
                 className="about-mini-img about-img-family"
-                width={300}
-                height={300}
-                style={{ width: '100%', height: 'auto', aspectRatio: '1/1', objectFit: 'cover', objectPosition: 'center 20%' }}
               />
             </div>
           </div>

@@ -108,9 +108,9 @@ nav.scrolled {
 
 /* ─── ABOUT ─── */
 .about { background: var(--parchment); padding: 108px 64px; min-height: 100vh; }
-.about-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
+.about-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 5fr 8fr; gap: 72px; align-items: start; }
 .about-photo-stack { display: flex; flex-direction: column; gap: 10px; }
-.about-main-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; display: block; }
+.about-main-img { width: 100%; max-height: 360px; object-fit: cover; object-position: center top; display: block; }
 .about-mini-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .about-mini-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center 20%; display: block; }
 .about-img-family { opacity: 0.92; }
