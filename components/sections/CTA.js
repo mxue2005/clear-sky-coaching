@@ -55,26 +55,27 @@ export default function CTA() {
           <form className="cta-form" name="contact" onSubmit={handleSubmit}>
             <input type="hidden" name="form-name" value="contact" />
 
-            <div className="cta-field">
-              <label htmlFor="email">Your email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-
-            <div className="cta-field">
-              <label htmlFor="subject">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="e.g. Exploratory conversation"
-                required
-              />
+            <div className="cta-form-row">
+              <div className="cta-field">
+                <label htmlFor="email">Your email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div className="cta-field">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="e.g. Exploratory conversation"
+                  required
+                />
+              </div>
             </div>
 
             <div className="cta-field">
