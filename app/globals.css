@@ -207,3 +207,6 @@ footer { background: var(--brown-dark); border-top: 1px solid rgba(255,255,255,.
 .cta-field input:focus, .cta-field textarea:focus { border-color: rgba(232,192,176,.5); }
 .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(253,250,245,.25); }
 .cta-field textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.cta-success { font-family: 'Cormorant Garant', serif; font-size: 22px; font-weight: 300; font-style: italic; color: var(--blush-light); margin-top: 16px; }
+.cta-error { font-family: 'Inter', sans-serif; font-size: 13px; color: var(--blush-light); opacity: .7; margin-top: 12px; }
+.btn-blush:disabled { opacity: .6; cursor: not-allowed; }

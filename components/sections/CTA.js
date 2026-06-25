@@ -1,4 +1,30 @@
+'use client'
+import { useState } from 'react'
+
 export default function CTA() {
+  const [status, setStatus] = useState('idle')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('submitting')
+    const formData = new FormData(e.target)
+    try {
+      const res = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      })
+      if (res.ok) {
+        setStatus('success')
+        e.target.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <section className="cta-section" id="contact">
       <h2>
@@ -20,45 +46,63 @@ export default function CTA() {
         <span className="cta-divider-line"></span>
       </div>
 
-      <form
-        className="cta-form"
-        action="https://formspree.io/f/REPLACE_WITH_YOUR_ID"
-        method="POST"
-      >
-        <div className="cta-field">
-          <label htmlFor="email">Your email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@example.com"
-            required
-          />
-        </div>
+      {status === 'success' ? (
+        <p className="cta-success">
+          Thank you — I&apos;ll be in touch soon.
+        </p>
+      ) : (
+        <>
+          <form className="cta-form" name="contact" onSubmit={handleSubmit}>
+            <input type="hidden" name="form-name" value="contact" />
 
-        <div className="cta-field">
-          <label htmlFor="subject">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            placeholder="e.g. Exploratory conversation"
-            required
-          />
-        </div>
+            <div className="cta-field">
+              <label htmlFor="email">Your email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
 
-        <div className="cta-field">
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tell me a little about where you are and what you&apos;re looking for…"
-            required
-          ></textarea>
-        </div>
+            <div className="cta-field">
+              <label htmlFor="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="e.g. Exploratory conversation"
+                required
+              />
+            </div>
 
-        <button type="submit" className="btn-blush">Send message</button>
-      </form>
+            <div className="cta-field">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me a little about where you are and what you're looking for…"
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="btn-blush"
+              disabled={status === 'submitting'}
+            >
+              {status === 'submitting' ? 'Sending…' : 'Send message'}
+            </button>
+          </form>
+
+          {status === 'error' && (
+            <p className="cta-error">
+              Something went wrong — please try again or email me directly.
+            </p>
+          )}
+        </>
+      )}
     </section>
   )
 }
