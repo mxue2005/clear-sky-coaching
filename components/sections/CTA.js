@@ -8,12 +8,18 @@ export default function CTA() {
     e.preventDefault()
     setStatus('submitting')
     const formData = new FormData(e.target)
+
     try {
-      const res = await fetch('/__forms.html', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString(),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email:   formData.get('email'),
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+        }),
       })
+
       if (res.ok) {
         setStatus('success')
         e.target.reset()
@@ -47,33 +53,23 @@ export default function CTA() {
       </div>
 
       {status === 'success' ? (
-        <p className="cta-success">
-          Thank you — I&apos;ll be in touch soon.
-        </p>
+        <p className="cta-success">Thank you — I&apos;ll be in touch soon.</p>
       ) : (
         <>
-          <form className="cta-form" name="contact" onSubmit={handleSubmit}>
-            <input type="hidden" name="form-name" value="contact" />
-
+          <form className="cta-form" onSubmit={handleSubmit}>
             <div className="cta-form-row">
               <div className="cta-field">
                 <label htmlFor="email">Your email</label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  required
+                  type="email" id="email" name="email"
+                  placeholder="you@example.com" required
                 />
               </div>
               <div className="cta-field">
                 <label htmlFor="subject">Subject</label>
                 <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="e.g. Exploratory conversation"
-                  required
+                  type="text" id="subject" name="subject"
+                  placeholder="e.g. Exploratory conversation" required
                 />
               </div>
             </div>
@@ -81,18 +77,13 @@ export default function CTA() {
             <div className="cta-field">
               <label htmlFor="message">Message</label>
               <textarea
-                id="message"
-                name="message"
+                id="message" name="message"
                 placeholder="Tell me a little about where you are and what you're looking for…"
                 required
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              className="btn-blush"
-              disabled={status === 'submitting'}
-            >
+            <button type="submit" className="btn-blush" disabled={status === 'submitting'}>
               {status === 'submitting' ? 'Sending…' : 'Send message'}
             </button>
           </form>
