@@ -31,10 +31,10 @@ export default function About() {
           <h2>I&apos;m Michelle Xue.</h2>
           <p>
             I spent over twenty years building a career in tech that looked exactly like it was
-            supposed to. A degree in Electrical Engineering and Computer Science from UC Berkeley.
-            I started as an engineer — in startups and large companies — working my way up to
-            senior engineer before moving into leadership, eventually serving as an Engineering VP
-            and Director.
+            supposed to. A degree in Electrical Engineering and Computer Science from UC Berkeley,
+            and two decades embedded in the Bay Area’s tech scene — across startups and large
+            companies alike. I started as an engineer, working my way up to senior engineer before
+            moving into leadership, eventually serving as a Director and VP of Engineering.
           </p>
           <p>
             I was good at it. Capable, effective, and by every external measure, successful. But
