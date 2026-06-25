@@ -9,7 +9,7 @@ export default function CTA() {
         Begin with a free 30-minute conversation. No pressure, no pitch — just space to explore
         what&apos;s possible.
       </p>
-      <a href="mailto:hello@clearskycoach.com" className="btn-blush">
+      <a href="mailto:clearskycoachmichelle@gmail.com" className="btn-blush">
         Book Your Free Conversation
       </a>
     </section>
