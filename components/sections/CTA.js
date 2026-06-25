@@ -22,16 +22,9 @@ export default function CTA() {
 
       <form
         className="cta-form"
-        name="contact"
+        action="https://formspree.io/f/REPLACE_WITH_YOUR_ID"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
       >
-        <input type="hidden" name="form-name" value="contact" />
-        <p style={{ display: 'none' }}>
-          <label>Don&apos;t fill this out: <input name="bot-field" /></label>
-        </p>
-
         <div className="cta-field">
           <label htmlFor="email">Your email</label>
           <input
