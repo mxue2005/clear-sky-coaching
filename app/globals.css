@@ -131,14 +131,28 @@ nav.scrolled {
 .services-header { margin-bottom: 56px; }
 .services-header h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(30px,3.8vw,46px); font-weight: 400; line-height: 1.2; color: var(--brown-text); }
 .services-header p { font-size: 15px; color: var(--brown-body); margin-top: 14px; line-height: 1.75; max-width: 500px; }
-.services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; background: var(--parchment); }
-.service-card { background: var(--cream); padding: 44px 38px; position: relative; overflow: hidden; transition: background .3s; }
-.service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--blush); transform: scaleX(0); transform-origin: left; transition: transform .35s ease; }
+.services-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; background: var(--parchment); margin-bottom: 2px; }
+.service-card { background: var(--cream); padding: 44px 38px; position: relative; overflow: hidden; transition: background .3s; border-top: 2px solid transparent; }
+.service-card--featured { border-top-color: var(--blush); }
 .service-card:hover { background: var(--blush-pale); }
-.service-card:hover::before { transform: scaleX(1); }
-.service-card h3 { font-family: 'Cormorant Garant', serif; font-size: 26px; font-weight: 400; color: var(--brown-text); margin-bottom: 12px; line-height: 1.2; }
-.service-card > p { font-size: 14px; line-height: 1.8; color: var(--brown-body); margin-bottom: 22px; }
-.service-meta { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--blush-dark); opacity: .75; }
+.service-badge { display: inline-block; background: var(--blush-pale); color: var(--blush-dark); font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; margin-bottom: 12px; border: 1px solid var(--blush-light); }
+.service-card h3 { font-family: 'Cormorant Garant', serif; font-size: 26px; font-weight: 400; color: var(--brown-text); margin-bottom: 6px; line-height: 1.2; }
+.service-price { font-family: 'Cormorant Garant', serif; font-size: 36px; font-weight: 300; color: var(--brown-text); margin-bottom: 4px; }
+.service-meta { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--blush-dark); opacity: .75; display: block; margin-bottom: 16px; }
+.service-card > p { font-size: 14px; line-height: 1.8; color: var(--brown-body); margin-bottom: 16px; }
+.service-includes { list-style: none; padding: 0; margin: 0 0 16px; }
+.service-includes li { font-size: 13px; color: var(--brown-body); padding: 5px 0; border-bottom: 1px solid var(--parchment); display: flex; gap: 8px; }
+.service-includes li::before { content: '—'; color: var(--blush); flex-shrink: 0; }
+.service-detail { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--blush-dark); opacity: .6; }
+.services-free-strip { background: var(--cream); padding: 28px 38px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 2px solid var(--parchment); margin-bottom: 2px; }
+.services-free-strip h3 { font-family: 'Cormorant Garant', serif; font-size: 22px; font-weight: 400; color: var(--brown-text); margin-bottom: 4px; }
+.services-free-strip p { font-size: 14px; color: var(--brown-body); margin: 0; line-height: 1.6; }
+.services-free-badge { flex-shrink: 0; background: var(--parchment); color: var(--brown-text); font-size: 13px; font-weight: 500; padding: 8px 20px; border-radius: 2px; }
+.services-single { padding: 20px 38px; border-top: 1px solid var(--parchment); }
+.services-single-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--brown-body); opacity: .5; display: block; margin-bottom: 8px; }
+.services-single-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.services-single-inner p { font-size: 13px; color: var(--brown-body); opacity: .7; line-height: 1.6; margin: 0; }
+.services-single-price { font-family: 'Cormorant Garant', serif; font-size: 22px; font-weight: 300; color: var(--brown-body); opacity: .7; flex-shrink: 0; }
 
 /* ─── TESTIMONIALS ─── */
 .testimonials { background: var(--ivory); padding: 108px 64px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
@@ -199,7 +213,7 @@ footer { background: var(--brown-dark); border-top: 1px solid rgba(255,255,255,.
   position: fixed;
   inset: 0;
   z-index: 90;
-  background: var(--brown-dark);
+  background: var(--cream);
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -224,7 +238,7 @@ footer { background: var(--brown-dark); border-top: 1px solid rgba(255,255,255,.
   font-family: 'Cormorant Garant', serif;
   font-size: 32px;
   font-weight: 300;
-  color: #F7F0E8;
+  color: var(--brown-text);
   text-decoration: none;
   letter-spacing: .04em;
   opacity: .8;
@@ -235,16 +249,17 @@ footer { background: var(--brown-dark); border-top: 1px solid rgba(255,255,255,.
 }
 .mobile-menu a:hover { opacity: 1; }
 .mobile-menu-cta {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: .08em !important;
-  text-transform: uppercase !important;
+  font-family: 'Cormorant Garant', serif !important;
+  font-size: 28px !important;
+  font-weight: 300 !important;
   background: var(--blush) !important;
   color: #fff !important;
   opacity: 1 !important;
   border-radius: 2px !important;
-  margin-top: 16px !important;
+  padding: 8px 28px !important;
+  margin-top: 12px !important;
+  letter-spacing: .02em !important;
+  text-transform: none !important;
 }
 
 /* ─── ANIMATIONS ─── */
@@ -269,6 +284,9 @@ footer { background: var(--brown-dark); border-top: 1px solid rgba(255,255,255,.
   .pillar:last-child { border-bottom: none; }
   .about-photo-stack { float: none; width: 100%; margin-right: 0; }
   .services-grid { grid-template-columns: 1fr; }
+  .services-free-strip { flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
+  .services-single { padding: 16px 24px; }
+  .service-card { padding: 28px 24px; }
   .cta-section { padding: 72px 24px; }
   footer { padding: 0 24px 40px; }
   .footer-inner { flex-direction: column; gap: 32px; align-items: flex-start; }

@@ -14,44 +14,58 @@ export default function Services() {
           </p>
         </div>
 
+        {/* Main packages — 2 columns */}
         <div className="services-grid">
-          <div className="service-card">
-            <h3>Individual Coaching</h3>
+          <div className="service-card service-card--featured">
+            <span className="service-badge">Most popular</span>
+            <h3>Clarity Sprint</h3>
+            <div className="service-price">$1,095</div>
+            <span className="service-meta">3 months · save $75</span>
             <p>
-              One-on-one sessions where we go deep. Whether you&apos;re navigating a promotion, a
-              career change, work-life balance, or searching for a direction that truly fits —
-              this is your dedicated space.
+              A focused engagement for a defined goal — a promotion, a career pivot, or a decision
+              you&apos;ve been sitting with too long.
             </p>
-            <span className="service-meta">6 or 12-session packages · Video sessions</span>
+            <ul className="service-includes">
+              <li>6 bi-weekly sessions</li>
+              <li>Support between sessions</li>
+            </ul>
+            <span className="service-detail">Bi-weekly · 60 min each</span>
           </div>
 
           <div className="service-card">
-            <h3>Work–Life Alignment</h3>
+            <h3>Transformation</h3>
+            <div className="service-price">$1,995</div>
+            <span className="service-meta">6 months · save $345</span>
             <p>
-              For women in tech feeling the friction between career drive and home life — family,
-              relationships, parenting. Together we clarify your authentic vision and resolve the
-              tensions pulling you in different directions.
+              For deeper work — identity, work-life alignment, sustained change beyond the
+              presenting challenge.
             </p>
-            <span className="service-meta">8-session programme · Video sessions</span>
+            <ul className="service-includes">
+              <li>12 bi-weekly sessions</li>
+              <li>Support between sessions</li>
+            </ul>
+            <span className="service-detail">Bi-weekly · 60 min each</span>
           </div>
+        </div>
 
-          <div className="service-card">
-            <h3>Career Clarity &amp; Growth</h3>
-            <p>
-              For women early in their tech career — or ready for a pivot, a promotion, or a
-              genuinely new chapter. We get clear on what lights you up and move toward it with
-              intention.
-            </p>
-            <span className="service-meta">6-session programme · Video sessions</span>
+        {/* Free exploratory call — full width */}
+        <div className="services-free-strip">
+          <div>
+            <h3>Exploratory conversation</h3>
+            <p>Not sure if coaching is right for you? Let&apos;s simply talk — no pressure, no pitch.</p>
           </div>
+          <span className="services-free-badge">Free · 30 min</span>
+        </div>
 
-          <div className="service-card">
-            <h3>Exploratory Conversation</h3>
+        {/* Single session — de-emphasised */}
+        <div className="services-single">
+          <span className="services-single-label">Also available</span>
+          <div className="services-single-inner">
             <p>
-              Not sure if coaching is right for you, or whether we&apos;re a good fit? Let&apos;s
-              simply talk. A free 30-minute conversation with no pressure and no pitch.
+              Single session — for returning clients, or a one-time session to experience coaching
+              before committing to a package.
             </p>
-            <span className="service-meta">30 minutes · Free of charge</span>
+            <span className="services-single-price">$195</span>
           </div>
         </div>
       </div>
