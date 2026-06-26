@@ -4,6 +4,14 @@ import { useState, useEffect } from 'react'
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 960)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -11,7 +19,6 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -22,7 +29,7 @@ export default function Nav() {
   return (
     <>
       <nav id="mainNav" className={scrolled ? 'scrolled' : ''}>
-        <a href="#" className="nav-logo" aria-label="Clear Sky Coaching — home" onClick={closeMenu}>
+        <a href="#" className="nav-logo" aria-label="Clear Sky Coaching home" onClick={closeMenu}>
           <svg width="38" height="38" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <rect width="120" height="120" rx="4" fill="#8B3028"/>
             <rect x="7" y="7" width="106" height="106" rx="1" fill="none" stroke="#F0DDD5" strokeWidth="1.6"/>
@@ -44,44 +51,52 @@ export default function Nav() {
           </div>
         </a>
 
-        {/* Desktop links */}
-        <ul className="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#recognition">Who This Is For</a></li>
-          <li><a href="#approach">Approach</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact" className="nav-cta">Begin the Conversation</a></li>
-        </ul>
+        {/* Desktop links — hidden on mobile via JS */}
+        {!isMobile && (
+          <ul className="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#recognition">Who This Is For</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact" className="nav-cta">Begin the Conversation</a></li>
+          </ul>
+        )}
 
-        {/* Hamburger button — mobile only */}
-        <button
-          className={`nav-hamburger${menuOpen ? ' open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        {/* Hamburger — mobile only */}
+        {isMobile && (
+          <button
+            className={`nav-hamburger${menuOpen ? ' open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        )}
       </nav>
 
-      {/* Mobile overlay menu */}
-      <div className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
-        <ul>
-          <li><a href="#" onClick={closeMenu}>Home</a></li>
-          <li><a href="#recognition" onClick={closeMenu}>Who This Is For</a></li>
-          <li><a href="#approach" onClick={closeMenu}>Approach</a></li>
-          <li><a href="#about" onClick={closeMenu}>About</a></li>
-          <li><a href="#services" onClick={closeMenu}>Services</a></li>
-          <li>
-            <a href="#contact" className="mobile-menu-cta" onClick={closeMenu}>
-              Begin the Conversation
-            </a>
-          </li>
-        </ul>
-      </div>
+      {/* Full-screen mobile menu */}
+      {isMobile && (
+        <div
+          className="mobile-menu"
+          style={{ opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? 'all' : 'none' }}
+        >
+          <ul>
+            <li><a href="#" onClick={closeMenu}>Home</a></li>
+            <li><a href="#recognition" onClick={closeMenu}>Who This Is For</a></li>
+            <li><a href="#approach" onClick={closeMenu}>Approach</a></li>
+            <li><a href="#about" onClick={closeMenu}>About</a></li>
+            <li><a href="#services" onClick={closeMenu}>Services</a></li>
+            <li>
+              <a href="#contact" className="mobile-menu-cta" onClick={closeMenu}>
+                Begin the Conversation
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
     </>
   )
 }
