@@ -164,7 +164,7 @@ nav.scrolled {
 .t-block cite { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #8A7060; font-style: normal; }
 
 /* ─── CTA ─── */
-.cta-section { background: var(--parchment); padding: 96px 64px; text-align: center; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
+.cta-section { background: var(--parchment); padding: 96px 120px; text-align: center; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
 .cta-section h2 { font-family: 'Cormorant Garant', serif; font-size: clamp(32px,4.5vw,58px); font-weight: 300; color: var(--brown-text); line-height: 1.2; margin-bottom: 20px; }
 .cta-section h2 em { font-style: italic; color: var(--blush-dark); }
 .cta-section > p { font-size: 17px; color: var(--brown-body); max-width: 420px; margin: 0 auto 40px; line-height: 1.75; }
@@ -293,6 +293,7 @@ footer { background: var(--brown-dark); border-top: 1px solid rgba(255,255,255,.
   .cta-form-row { grid-template-columns: 1fr; }
   .cta-form { max-width: 100%; }
   .cta-divider { max-width: 100%; }
+  .cta-section { padding: 72px 24px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 
@@ -300,10 +301,10 @@ footer { background: var(--brown-dark); border-top: 1px solid rgba(255,255,255,.
 .cta-email-direct { margin-bottom: 32px; }
 .cta-email-direct a { color: #A86050; font-size: 15px; letter-spacing: .04em; text-decoration: none; border-bottom: 1px solid #C9A88A; padding-bottom: 2px; transition: border-color .2s; }
 .cta-email-direct a:hover { border-color: #A86050; }
-.cta-divider { display: flex; align-items: center; gap: 16px; max-width: 680px; margin: 0 auto 32px; }
+.cta-divider { display: flex; align-items: center; gap: 16px; max-width: 720px; margin: 0 auto 32px; }
 .cta-divider-line { flex: 1; height: 1px; background: #C9B89A; }
 .cta-divider-text { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #8A7060; }
-.cta-form { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+.cta-form { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
 .cta-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .cta-field { display: flex; flex-direction: column; gap: 6px; text-align: left; }
 .cta-field label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #8A7060; }
